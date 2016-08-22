@@ -1,0 +1,20 @@
+{
+  "name": "zhufengpeixunblog",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Thanatoschd <1027272807@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chenhongdong/blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

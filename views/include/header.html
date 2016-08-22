@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰博客</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">珠峰博客</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <%
+                    if(user){
+                        %>
+                    <li><a href="/article/add">发表文章</a></li>
+                    <li><a href="/user/logout">退出</a></li>
+                        <%
+                    }else{
+                        %>
+                    <li><a href="/user/login">登入</a></li>
+                    <li><a href="/user/reg">注册</a></li>
+                        <%
+                    }
+                %>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<%
+    if(success){
+        %>
+<div class="alert alert-success" role="alert"><%=success%></div>
+    <%
+    }
+%>
+<%
+    if(error){
+        %>
+<div class="alert alert-danger" role="alert"><%=error%></div>
+    <%
+    }
+%>
+
+
