@@ -1,3 +1,23 @@
 <% include include/header.html%>
-首页
+<%
+articles.forEach(function(item){
+%>
+<div class="media">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="<%=item.user.avatar%>" >
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading"><%=item.title%></h4>
+        <p><%-item.content%></p>
+    </div>
+    <div class="media-bottom">
+        作者：<%=item.user.username%>
+        发表时间：<%=item.createAt.toLocaleString()%>
+    </div>
+</div>
+<%
+});
+%>
 <% include include/footer.html%>
