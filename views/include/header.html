@@ -36,6 +36,12 @@
                 %>
 
             </ul>
+            <form class="navbar-form navbar-left" role="search" action="/?keyword=<%=keyword%>&pageNum=<%=pageNum%>&&pageSize=<%=pageSize%>">
+                <div class="form-group">
+                      <input type="text" class="form-control" placeholder="请输入关键字" name="keyword" value="<%=keyword%>">
+                </div>
+                <input class="btn btn-default" name="search" type="submit" value="搜索">
+            </form>
         </div>
     </div>
 </nav>
