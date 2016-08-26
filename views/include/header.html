@@ -42,7 +42,16 @@
                 </div>
                 <input class="btn btn-default" name="search" type="submit" value="搜索">
             </form>
-
+            <ul class="nav navbar-nav">
+                <%
+                    if(user){
+                    %>
+                    <li><img src="<%=user.avatar%>" class="img img-responsive"></li>
+                    <li><a href="javascript:;"><%=user.username%></a></li>
+                    <%
+                }
+                %>
+            </ul>
         </div>
     </div>
 </nav>
