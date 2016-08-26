@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var config = require('../config');
-
+var ObjectId = mongoose.Schema.Types.ObjectId;
 mongoose.connect(config.dbUrl);
 
 exports.User = mongoose.model('user',new mongoose.Schema({
@@ -12,7 +12,7 @@ exports.User = mongoose.model('user',new mongoose.Schema({
 
 exports.Article = mongoose.model('article',new mongoose.Schema({
     user:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:ObjectId,
         ref:'user'
     },
     title:String,
@@ -21,5 +21,13 @@ exports.Article = mongoose.model('article',new mongoose.Schema({
     createAt:{
         type:Date,
         default:Date.now()
-    }
+    },
+    pv:{type:Number,default:0},
+    comments:[
+        {
+            user:{type:ObjectId,ref:'user'},
+            content:String,
+            createAt:{type:Date,default:Date.now()}
+        }
+    ]
 }));

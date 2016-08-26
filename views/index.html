@@ -9,12 +9,14 @@ articles.forEach(function(item){
         </a>
     </div>
     <div class="media-body">
-        <h4 class="media-heading"><%=item.title%></h4>
+        <h4 class="media-heading"><a href="/article/detail/<%=item._id%>"><%=item.title%></a></h4>
         <p><%-item.content%></p>
     </div>
     <div class="media-bottom">
         作者：<%=item.user.username%>
         发表时间：<%=item.createAt.toLocaleString()%>
+        阅读：<%= item.pv%>
+        评论：<%= item.comments.length%>
     </div>
 </div>
 <%

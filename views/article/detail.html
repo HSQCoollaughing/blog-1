@@ -1,0 +1,52 @@
+<%include ../include/header.html%>
+<div class="panel panel-primary">
+    <div class="panel-heading"><%=article.title%></div>
+    <div class="panel-body">
+        <p><%-article.content%></p>
+        <img class="img img-responsive" src="<%=article.poster%>" alt="<%=article.title%>">
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-warning" href="/article/edit/<%=article._id%>">编辑</a>
+        <a class="btn btn-danger"href="/article/delete/<%=article._id%>">删除</a>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">评论列表</div>
+    <div class="panel-body" style="height: 300px;overflow-y: scroll">
+        <ul class="media-list">
+            <%
+            article.comments.forEach(function(comment){
+            %>
+            <li class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img src="<%=comment.user.avatar%>" class="media-object">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <p class="media-left"><%-comment.content%></p>
+                </div>
+                <div class="media-bottom">
+                    <%=comment.user.username%> <%=comment.createAt.toLocaleString()%>
+                </div>
+            </li>
+            <%
+            });
+            %>
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <form action="/article/comment" method="post">
+        <input type="hidden" name="_id" value="<%=article._id%>">
+        <div class="panel-body">
+            <textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="请输入评论"></textarea>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-default" type="submit">提交</button>
+        </div>
+    </form>
+</div>
+<%include ../include/footer.html%>
